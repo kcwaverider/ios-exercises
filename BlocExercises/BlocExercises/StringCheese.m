@@ -22,7 +22,7 @@
         NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
         shortName = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
     } else {
-        /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
+        /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese"  */
         shortName = cheeseName;
     }
 
