@@ -12,7 +12,7 @@
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
     NSString *fullSentance = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
-    return fullSentance;
+    return  fullSentance;
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
