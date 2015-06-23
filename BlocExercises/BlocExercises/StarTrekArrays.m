@@ -11,23 +11,39 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    /* WORK HERE */
-    return @[];
+    
+    NSArray *starTrekArray = [characterString componentsSeparatedByString:@";"];
+    return starTrekArray;
 }
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @"";
+    NSString *characterString = [characterArray componentsJoinedByString:@";"];
+    return characterString;
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @[];
+    NSMutableArray *sortedArray = [[NSMutableArray alloc] init];
+    for (int n = 0; n < characterArray.count; n++) {
+        sortedArray[n] = characterArray[n];
+    }
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector((localizedCaseInsensitiveCompare:))];
+    [sortedArray sortUsingDescriptors:@[sortDescriptor]];
+    
+
+    return sortedArray;
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE */
-    return NO;
+    BOOL worfExists = FALSE;
+    
+    for (NSString *name in characterArray) {
+        if ( [name rangeOfString:@"worf" options:NSCaseInsensitiveSearch].location == NSNotFound )
+            return FALSE;
+    }
+    return YES;
 }
 
 @end
