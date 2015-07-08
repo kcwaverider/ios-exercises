@@ -8,7 +8,8 @@ Strings
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
     // WORK HERE
-    return cheese
+    let fullSentence = "My favorite cheese is " + cheese
+    return fullSentence
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
@@ -23,10 +24,15 @@ Arrays & Dictionaries
 let numberArray = [1, 2, 3, 4]
 // Add 5 to this array
 // WORK HERE
+var newArray = numberArray
+newArray += [5]
 
 let numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
 // Add 5 : "five" to this dictionary
 // WORK HERE
+var newDictionary = numberDictionary
+
+newDictionary[5] = "five"
 
 /*
 
@@ -36,9 +42,15 @@ Loops
 
 // Use a closed range loop to print 1 - 10, inclusively
 // WORK HERE
+for n in 1...10 {
+    println(n)
+}
 
 // Use a half-closed range loop to print 1 - 10, inclusively
 // WORK HERE
+for n in 1..<11 {
+    println(n)
+}
 
 let worf = [
     "name": "Worf",
@@ -55,10 +67,17 @@ let picard = [
 
 let characters = [worf, picard]
 
+
+
 func favoriteDrinksArrayForCharacters(characters:Array<Dictionary<String, String>>) -> Array<String> {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
     // WORK HERE
-    return []
+    var drinkArray = [String]()
+    var favDrink = ""
+    for name in characters {
+        drinkArray.append(name["favorite drink"] ?? "")
+    }
+    return drinkArray
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -75,7 +94,21 @@ Functions
 
 let strings = ["milk", "eggs", "bread", "challah"]
 
+func stringify(foods:Array<String>) -> String {
+    var list = ""
+    var numberOfFoods = foods.count
+    if numberOfFoods > 0 {
+        list += foods[0]
+        
+        for n in 1..<numberOfFoods {
+            list += ";" + foods[n]
+        }
+    }
+    return list
+}
+
 // WORK HERE - make your function and pass `strings` in
+stringify(strings)
 
 let expectedOutput = "milk;eggs;bread;challah"
 
@@ -89,3 +122,31 @@ let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All
 
 // Use a closure to sort this array alphabetically
 // WORK HERE
+let sortedCereals = sorted(cerealArray, {(cereal1, cereal2) -> Bool in
+    return cereal1 < cereal2
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
